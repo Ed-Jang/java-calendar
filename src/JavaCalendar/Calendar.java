@@ -11,18 +11,21 @@ public class Calendar {
 	}
 		
 	public static void main (String[] args) {
-		System.out.println("반복 횟수를 입력하세요");
 		Scanner scanner = new Scanner(System.in);
-
-		int repeat = scanner.nextInt(); 
 		Calendar cal = new Calendar();
 
-		for(int i = 0; i<repeat; i++) {
+		int month = 1;
+		while(true) {
 			System.out.println("월을 입력하세요");
-			int month = scanner.nextInt();
+			month = scanner.nextInt();
+			if(month == -1) break;
+			if(month > 12) {
+				System.out.println("1년은 12월까지 있습니다");
+				continue;
+			}
 			System.out.println(month+"월은"+cal.maxDaysOfMonth(month)+"일까지 있습니다");
 		}
-		
+		System.out.println("Bye");
 		scanner.close();
 	}
 }
